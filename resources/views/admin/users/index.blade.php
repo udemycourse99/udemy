@@ -1,4 +1,5 @@
 <?php use App\User; ?>
+<?php use App\photos; ?>
 
 @extends ('layouts.admin');
 @section('content')
@@ -11,6 +12,7 @@
                 <thead>
                     <tr>
                         <th>Id</th>
+                        <th>Picture</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Role</th>
@@ -28,6 +30,8 @@
                         <tbody>
                             <tr>
                                 <td>{{$user->id}}</td>
+                                <td><img height="50" src="{!! URL::asset($user->photo ? $user->photo->file : 'https://via.placeholder.com/350x150') !!}" alt=""></td>
+                                <td><a href="{{route('admin.users.edit', $user->id)}}">{{$user->name}}</a></td>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->role->name}}</td>
