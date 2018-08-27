@@ -32,7 +32,7 @@
                     </div>
 
                     <div class="form-group">
-                        {!! Form::label('photo_id', 'Image:') !!}
+                        {!! Form::label('file', 'Image:') !!}
                         {!! Form::file('photo_id', ['class'=>'btn'] ) !!}
                     </div>
 
