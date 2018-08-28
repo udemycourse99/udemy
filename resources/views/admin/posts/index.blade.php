@@ -18,6 +18,7 @@
             <th>Body</th>
             <th>Created</th>
             <th>Updated</th>
+            <th>ph</th>
           </tr>
 
         </thead>
@@ -30,14 +31,14 @@
 
           <tr>
             <td>{{$post->id}}</td>
-            <td><img height="50" src="{{$post->photos ? $post->photos->file : 'https://via.placeholder.com/350x150'}} " alt=""></td>
+            <td><img height="50" src="{!! URL::asset($post->photo ? $post->photo->file : 'https://via.placeholder.com/350x150') !!}" alt=""></td>
             <td>{{$post->user->name}}</td>
-            <td>{{$post->category_id}}</td>
-            <td>{{$post->photo_id}}</td>
+            <td>{{$post->category ? $post->category->name : 'Uncategorized'}}</td>
             <td>{{$post->title}}</td>
             <td>{{$post->body}}</td>
             <td>{{$post->created_at->diffForHumans()}}</td>
             <td>{{$post->updated_at->diffForHumans()}}</td>
+            <td>{{$post->photos}}</td>
           </tr>
           <tr>
 
